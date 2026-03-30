@@ -267,7 +267,7 @@ Uri frameworkUri(String fileName, Set<String> alreadyTakenNames) {
   if (isDylib && fileName.startsWith('lib')) {
     fileName = fileName.replaceFirst('lib', '');
   }
-  fileName = fileName.replaceAll(RegExp(r'[^A-Za-z0-9_-]'), '');
+  fileName = fileName.replaceAll(RegExp(r'[^A-Za-z0-9_._-]'), ''); // Allow period to fix issue #3268
   if (alreadyTakenNames.contains(fileName)) {
     final prefixName = fileName;
     for (var i = 1; i < 1000; i++) {
